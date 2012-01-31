@@ -4,7 +4,7 @@
 pkgname=sudo
 _ver=1.8.3p2
 pkgver=${_ver/[a-z]/.${_ver//[0-9.]/}}
-pkgrel=1
+pkgrel=2
 pkgdesc="Give certain users the ability to run some commands as root"
 arch=('i686' 'x86_64')
 url="http://www.sudo.ws/sudo/"
@@ -31,6 +31,8 @@ package() {
   install -dm755 "$pkgdir/var/lib"
 
   make DESTDIR="$pkgdir" install
+  chmod 755 $pkgdir/var/db
+
   install -Dm644 "$srcdir/sudo.pam" "$pkgdir/etc/pam.d/sudo"
 
   install -Dm644 doc/LICENSE "$pkgdir/usr/share/licenses/sudo/LICENSE"
