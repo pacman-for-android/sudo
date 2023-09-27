@@ -5,7 +5,7 @@ Documentation=https://www.sudo.ws/man.html
 After=syslog.target network.target auditd.service
 
 [Service]
-ExecStart=/usr/bin/sudo_logsrvd -n
+ExecStart=/data/usr/bin/sudo_logsrvd -n
 KillMode=process
 Type=exec
 
